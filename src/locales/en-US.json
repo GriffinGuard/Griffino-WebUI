@@ -267,5 +267,43 @@
   "wiring.strategy.roundRobin": "Weighted round-robin",
   "wiring.providerWeight": "Weight",
   "wiring.addProvider": "Add provider",
-  "wiring.removeProvider": "Remove"
+  "wiring.removeProvider": "Remove",
+
+  "setup.title": "Griffino Setup",
+  "setup.next": "Next",
+  "setup.steps.progress": "Setup progress",
+  "setup.steps.welcome": "Welcome",
+  "setup.steps.environment": "Environment",
+  "setup.steps.account": "Account",
+  "setup.steps.complete": "Done",
+
+  "setup.welcome.heading": "Welcome to Griffino",
+  "setup.welcome.description": "This wizard will help you get Griffino ready in a few minutes. We'll check your environment, set up your admin account, and get you into the console.",
+  "setup.welcome.feature1Title": "Plugin Orchestration",
+  "setup.welcome.feature1Desc": "Compose capabilities from any plugin into automated workflows.",
+  "setup.welcome.feature2Title": "Secure by Default",
+  "setup.welcome.feature2Desc": "Change your admin password now — Griffino enforces credential rotation on first boot.",
+  "setup.welcome.feature3Title": "Runs Anywhere",
+  "setup.welcome.feature3Desc": "A single binary with an embedded web console. Docker, RabbitMQ, Redis — that's it.",
+  "setup.welcome.footer": "Let's get your instance ready.",
+
+  "setup.environment.heading": "Environment Check",
+  "setup.environment.description": "Checking that core dependencies are available.",
+  "setup.environment.ready": "Ready",
+  "setup.environment.warning": "Warning",
+  "setup.environment.notReady": "Not ready",
+  "setup.environment.fetchFailed": "Could not fetch system status. Make sure the daemon is running.",
+  "setup.environment.recheck": "Re-check",
+  "setup.environment.dockerHintTitle": "Docker / Container Runtime",
+  "setup.environment.dockerHint": "Griffino uses Docker to run plugin workloads. Make sure Docker is installed and the daemon is running. On Linux you may also use Podman with the Docker-compatible socket.",
+  "setup.environment.brokerHintTitle": "RabbitMQ & Redis",
+  "setup.environment.brokerHint": "Griffino requires RabbitMQ for messaging and Redis for caching and state. Install them via Docker Compose or your system package manager, then click Re-check.",
+
+  "setup.account.heading": "Set Admin Password",
+  "setup.account.description": "The default admin account requires a new password before you can use Griffino.",
+  "setup.account.loggedInAs": "Logged in as",
+
+  "setup.complete.heading": "Setup Complete",
+  "setup.complete.description": "Griffino is ready. You can now enter the management console.",
+  "setup.complete.enterConsole": "Enter Console"
 }

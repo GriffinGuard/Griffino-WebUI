@@ -267,5 +267,43 @@
   "wiring.strategy.roundRobin": "加权轮询",
   "wiring.providerWeight": "权重",
   "wiring.addProvider": "添加 provider",
-  "wiring.removeProvider": "移除"
+  "wiring.removeProvider": "移除",
+
+  "setup.title": "Griffino 初始化向导",
+  "setup.next": "下一步",
+  "setup.steps.progress": "安装进度",
+  "setup.steps.welcome": "欢迎",
+  "setup.steps.environment": "环境检查",
+  "setup.steps.account": "账号设置",
+  "setup.steps.complete": "完成",
+
+  "setup.welcome.heading": "欢迎使用 Griffino",
+  "setup.welcome.description": "本向导将帮助您在几分钟内完成 Griffino 的初始化。我们将检查运行环境、设置管理员账户，然后带您进入控制台。",
+  "setup.welcome.feature1Title": "插件编排",
+  "setup.welcome.feature1Desc": "将任意插件的能力组合为自动化工作流。",
+  "setup.welcome.feature2Title": "默认安全",
+  "setup.welcome.feature2Desc": "立即修改管理员密码 — Griffino 要求首次启动时必须更换凭据。",
+  "setup.welcome.feature3Title": "随处运行",
+  "setup.welcome.feature3Desc": "单一二进制文件 + 内嵌 Web 控制台。只需 Docker、RabbitMQ、Redis。",
+  "setup.welcome.footer": "让我们开始配置您的实例。",
+
+  "setup.environment.heading": "环境检查",
+  "setup.environment.description": "正在检查核心依赖是否就绪。",
+  "setup.environment.ready": "就绪",
+  "setup.environment.warning": "警告",
+  "setup.environment.notReady": "未就绪",
+  "setup.environment.fetchFailed": "无法获取系统状态，请确认守护进程已运行。",
+  "setup.environment.recheck": "重新检查",
+  "setup.environment.dockerHintTitle": "Docker / 容器运行时",
+  "setup.environment.dockerHint": "Griffino 使用 Docker 运行插件负载。请确保 Docker 已安装且守护进程正在运行。Linux 下也可使用 Podman 的 Docker 兼容 socket。",
+  "setup.environment.brokerHintTitle": "RabbitMQ 与 Redis",
+  "setup.environment.brokerHint": "Griffino 需要 RabbitMQ 提供消息队列，Redis 提供缓存与状态存储。请通过 Docker Compose 或系统包管理器安装后重新检查。",
+
+  "setup.account.heading": "设置管理员密码",
+  "setup.account.description": "默认管理员账户需要设置新密码才能使用 Griffino。",
+  "setup.account.loggedInAs": "当前账户",
+
+  "setup.complete.heading": "初始化完成",
+  "setup.complete.description": "Griffino 已就绪，您现在可以进入管理控制台。",
+  "setup.complete.enterConsole": "进入控制台"
 }

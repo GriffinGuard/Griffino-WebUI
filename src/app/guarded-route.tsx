@@ -16,18 +16,35 @@
 import { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuthStore } from "@/stores/auth.store";
+import { useOnboardingStore } from "@/stores/onboarding.store";
 import { DEFAULT_ROUTE_BY_ROLE } from "@/lib/route-map";
 import type { UserRole } from "@/lib/storage";
+
+function LoadingGuard() {
+  return (
+    <div className="grid min-h-screen place-items-center p-4">
+      <div className="size-8 animate-spin rounded-full border-4 border-muted border-t-primary" />
+    </div>
+  );
+}
 
 export function ProtectedRoute() {
   const location = useLocation();
   const { token, user, hydrated, hydrate } = useAuthStore();
+  const setupCompleted = useOnboardingStore((s) => s.setupCompleted);
+  const fetchSetupStatus = useOnboardingStore((s) => s.fetchSetupStatus);
 
   useEffect(() => {
     if (!hydrated) {
       hydrate();
     }
   }, [hydrate, hydrated]);
+
+  useEffect(() => {
+    if (hydrated && token && user && setupCompleted === null) {
+      fetchSetupStatus();
+    }
+  }, [hydrated, token, user, setupCompleted, fetchSetupStatus]);
 
   if (!hydrated) {
     return null;
@@ -37,8 +54,16 @@ export function ProtectedRoute() {
     return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
-  if (user.mustChangePassword && location.pathname !== "/change-password") {
-    return <Navigate to="/change-password" replace />;
+  if (user.mustChangePassword) {
+    if (setupCompleted === null) {
+      return <LoadingGuard />;
+    }
+    if (!setupCompleted && location.pathname !== "/setup") {
+      return <Navigate to="/setup" replace />;
+    }
+    if (setupCompleted && location.pathname !== "/change-password" && location.pathname !== "/setup") {
+      return <Navigate to="/change-password" replace />;
+    }
   }
 
   return <Outlet />;
@@ -46,6 +71,8 @@ export function ProtectedRoute() {
 
 export function PublicRoute() {
   const { token, user, hydrated, hydrate } = useAuthStore();
+  const setupCompleted = useOnboardingStore((s) => s.setupCompleted);
+  const fetchSetupStatus = useOnboardingStore((s) => s.fetchSetupStatus);
 
   useEffect(() => {
     if (!hydrated) {
@@ -53,13 +80,22 @@ export function PublicRoute() {
     }
   }, [hydrate, hydrated]);
 
+  useEffect(() => {
+    if (hydrated && token && user && setupCompleted === null) {
+      fetchSetupStatus();
+    }
+  }, [hydrated, token, user, setupCompleted, fetchSetupStatus]);
+
   if (!hydrated) {
     return null;
   }
 
   if (token && user) {
     if (user.mustChangePassword) {
-      return <Navigate to="/change-password" replace />;
+      if (setupCompleted === null) {
+        return <LoadingGuard />;
+      }
+      return <Navigate to={setupCompleted ? "/change-password" : "/setup"} replace />;
     }
 
     return <Navigate to={DEFAULT_ROUTE_BY_ROLE[user.role]} replace />;

@@ -17,6 +17,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { ProtectedRoute, PublicRoute, RoleRoute } from "@/app/guarded-route";
 import { LoginPage } from "@/pages/auth/login-page";
 import { ChangePasswordPage } from "@/pages/auth/change-password-page";
+import { SetupPage } from "@/pages/setup/setup-page";
 import { AdminLayout } from "@/pages/admin/admin-layout";
 import { PluginsPage } from "@/pages/admin/plugins-page";
 import { UsersPage } from "@/pages/admin/users-page";
@@ -40,6 +41,7 @@ export const router = createBrowserRouter([
     errorElement: <RouteErrorPage />,
     element: <ProtectedRoute />,
     children: [
+      { path: "/setup", element: <SetupPage /> },
       { path: "/change-password", element: <ChangePasswordPage /> },
       {
         element: <RoleRoute allow="admin" />,

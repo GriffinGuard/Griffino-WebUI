@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { login } from "@/api/auth.api";
+import { getSetupStatus } from "@/api/setup.api";
 import { useAuthStore } from "@/stores/auth.store";
 import { DEFAULT_ROUTE_BY_ROLE } from "@/lib/route-map";
 import { useToastError } from "@/hooks/use-toast-error";
@@ -57,10 +58,16 @@ export function LoginPage() {
         mustChangePassword: result.mustChange,
       });
 
-      navigate(
-        result.mustChange ? "/change-password" : DEFAULT_ROUTE_BY_ROLE[result.role],
-        { replace: true },
-      );
+      if (result.mustChange) {
+        try {
+          const status = await getSetupStatus();
+          navigate(status.completed ? "/change-password" : "/setup", { replace: true });
+        } catch {
+          navigate("/setup", { replace: true });
+        }
+      } else {
+        navigate(DEFAULT_ROUTE_BY_ROLE[result.role], { replace: true });
+      }
     } catch (error) {
       toastError(error, t("auth.login.failed"));
     }

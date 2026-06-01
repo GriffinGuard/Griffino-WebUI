@@ -24,6 +24,7 @@ export function normalizeSystemStatus(payload: RawSystemStatusResponse): SystemS
       managementPort: payload.system?.rabbitmq?.mgmtPort ?? 0,
       bindMode: "127.0.0.1 only",
       image: "—",
+      healthy: payload.system?.rabbitmq?.healthy ?? false,
     },
     redis: {
       containerName: payload.system?.redis?.container ?? "",
@@ -31,12 +32,16 @@ export function normalizeSystemStatus(payload: RawSystemStatusResponse): SystemS
       persistence: "—",
       bindMode: "127.0.0.1 only",
       image: "—",
+      healthy: payload.system?.redis?.healthy ?? false,
     },
     daemon: {
       apiEndpoint: `${window.location.origin}/api/v1`,
       systemNetwork: "—",
       databasePath: "—",
       webUiStatus: payload.status ?? "unknown",
+    },
+    docker: {
+      available: payload.docker?.available ?? false,
     },
   };
 }

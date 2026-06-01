@@ -267,5 +267,43 @@
   "wiring.strategy.roundRobin": "Взвешенный round-robin",
   "wiring.providerWeight": "Вес",
   "wiring.addProvider": "Добавить provider",
-  "wiring.removeProvider": "Удалить"
+  "wiring.removeProvider": "Удалить",
+
+  "setup.title": "Установка Griffino",
+  "setup.next": "Далее",
+  "setup.steps.progress": "Прогресс установки",
+  "setup.steps.welcome": "Приветствие",
+  "setup.steps.environment": "Окружение",
+  "setup.steps.account": "Аккаунт",
+  "setup.steps.complete": "Готово",
+
+  "setup.welcome.heading": "Добро пожаловать в Griffino",
+  "setup.welcome.description": "Этот мастер поможет вам настроить Griffino за несколько минут. Мы проверим окружение, настроим учётную запись администратора и откроем консоль.",
+  "setup.welcome.feature1Title": "Оркестрация плагинов",
+  "setup.welcome.feature1Desc": "Объединяйте возможности любых плагинов в автоматизированные workflows.",
+  "setup.welcome.feature2Title": "Безопасность по умолчанию",
+  "setup.welcome.feature2Desc": "Смените пароль администратора — Griffino требует смены учётных данных при первом запуске.",
+  "setup.welcome.feature3Title": "Работает везде",
+  "setup.welcome.feature3Desc": "Один бинарный файл со встроенной веб-консолью. Только Docker, RabbitMQ и Redis.",
+  "setup.welcome.footer": "Приступим к настройке вашего экземпляра.",
+
+  "setup.environment.heading": "Проверка окружения",
+  "setup.environment.description": "Проверка доступности основных зависимостей.",
+  "setup.environment.ready": "Готово",
+  "setup.environment.warning": "Предупреждение",
+  "setup.environment.notReady": "Не готово",
+  "setup.environment.fetchFailed": "Не удалось получить статус системы. Убедитесь, что демон запущен.",
+  "setup.environment.recheck": "Проверить снова",
+  "setup.environment.dockerHintTitle": "Docker / Среда контейнеров",
+  "setup.environment.dockerHint": "Griffino использует Docker для запуска плагинов. Убедитесь, что Docker установлен и демон работает. На Linux можно также использовать Podman с Docker-совместимым сокетом.",
+  "setup.environment.brokerHintTitle": "RabbitMQ и Redis",
+  "setup.environment.brokerHint": "Griffino требуется RabbitMQ для обмена сообщениями и Redis для кэширования и состояния. Установите их через Docker Compose или системный пакетный менеджер, затем нажмите «Проверить снова».",
+
+  "setup.account.heading": "Установка пароля администратора",
+  "setup.account.description": "Учётная запись администратора по умолчанию требует нового пароля перед использованием Griffino.",
+  "setup.account.loggedInAs": "Вы вошли как",
+
+  "setup.complete.heading": "Установка завершена",
+  "setup.complete.description": "Griffino готов к работе. Теперь вы можете войти в консоль управления.",
+  "setup.complete.enterConsole": "Войти в консоль"
 }

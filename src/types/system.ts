@@ -19,6 +19,7 @@ export interface RabbitmqStatus {
   managementPort: number;
   bindMode: string;
   image: string;
+  healthy: boolean;
 }
 
 export interface RedisStatus {
@@ -27,6 +28,7 @@ export interface RedisStatus {
   persistence: string;
   bindMode: string;
   image: string;
+  healthy: boolean;
 }
 
 export interface DaemonStatus {
@@ -36,23 +38,37 @@ export interface DaemonStatus {
   webUiStatus: string;
 }
 
+export interface DockerStatus {
+  available: boolean;
+}
+
 export interface SystemStatus {
   rabbitmq: RabbitmqStatus;
   redis: RedisStatus;
   daemon: DaemonStatus;
+  docker: DockerStatus;
 }
 
 export interface RawSystemStatusResponse {
   status?: string;
+  docker?: {
+    available?: boolean;
+  };
   system?: {
     rabbitmq?: {
       container?: string;
       port?: number;
       mgmtPort?: number;
+      healthy?: boolean;
     };
     redis?: {
       container?: string;
       port?: number;
+      healthy?: boolean;
     };
   };
+}
+
+export interface SetupStatusResponse {
+  completed: boolean;
 }
