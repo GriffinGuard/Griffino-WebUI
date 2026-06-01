@@ -1,0 +1,94 @@
+/* Copyright 2025 GriffinGuard
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 16% 98%;
+    --foreground: 214 31% 12%;
+    --card: 210 25% 100%;
+    --card-foreground: 214 31% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 31% 12%;
+    --primary: 214 100% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 26% 95%;
+    --secondary-foreground: 214 31% 18%;
+    --muted: 214 18% 93%;
+    --muted-foreground: 215 16% 42%;
+    --accent: 214 82% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 7 78% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 22% 88%;
+    --input: 214 22% 88%;
+    --ring: 214 100% 62%;
+    --radius: 0.875rem;
+    color-scheme: light;
+  }
+
+  .dark {
+    --background: 216 21% 5%;
+    --foreground: 210 28% 84%;
+    --card: 218 21% 8%;
+    --card-foreground: 210 28% 84%;
+    --popover: 218 21% 8%;
+    --popover-foreground: 210 28% 84%;
+    --primary: 214 100% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 22% 13%;
+    --secondary-foreground: 210 20% 88%;
+    --muted: 217 20% 13%;
+    --muted-foreground: 213 20% 58%;
+    --accent: 214 100% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 7 78% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 22% 18%;
+    --input: 215 22% 18%;
+    --ring: 214 100% 62%;
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top right, rgba(59, 143, 255, 0.09), transparent 30%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+    min-height: 100vh;
+    font-feature-settings: "cv05", "cv11";
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .app-grid {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .panel {
+    @apply rounded-2xl border bg-card/85 shadow-panel backdrop-blur;
+  }
+}
